@@ -1,0 +1,63 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "MongoConnector",
+    "public": false
+  },
+  "AccessToken": {
+    "dataSource": "MongoConnector",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "MongoConnector",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "MongoConnector",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "user": {
+    "dataSource": "MongoConnector",
+    "public": true
+  },
+  "Role": {
+    "dataSource": "MongoConnector",
+    "public": false
+  },
+  "TipoPago": {
+    "dataSource": "MongoConnector",
+    "public": true
+  },
+  "EstadoOrden": {
+    "dataSource": "MongoConnector",
+    "public": true
+  },
+  "Plato": {
+    "dataSource": "MongoConnector",
+    "public": true
+  },
+  "Orden": {
+    "dataSource": "MongoConnector",
+    "public": true
+  },
+  "OrdenDetalle": {
+    "dataSource": "MongoConnector",
+    "public": true
+  }
+}

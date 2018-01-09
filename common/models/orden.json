@@ -1,0 +1,46 @@
+{
+  "name": "Orden",
+  "plural": "Ordenes",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "required": true
+    },
+    "EstadoOrdenId": {
+      "type": "string",
+      "required": true
+    },
+    "Fecha": {
+      "type": "date",
+      "required": true
+    },
+    "TipoPagoId": {
+      "type": "string",
+      "required": true
+    },
+    "NombreCliente": {
+      "type": "string",
+      "required": true
+    },
+    "CostoTotal": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}
