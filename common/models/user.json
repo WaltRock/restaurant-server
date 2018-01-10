@@ -16,12 +16,18 @@
       "foreignKey": "ownerId"
     }
   },
-  "acls": [
-    {
+  "acls": [{
       "accessType": "*",
       "principalType": "ROLE",
       "principalId": "$unauthenticated",
       "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "find",
+      "accessType": "*"
     }
   ],
   "methods": {}
