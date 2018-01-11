@@ -21,7 +21,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "plato": {
+      "type": "hasMany",
+      "model": "OrdenDetalle",
+      "foreignKey": "PlatoId"
+    }
+  },
   "acls": [
     {
       "accessType": "*",

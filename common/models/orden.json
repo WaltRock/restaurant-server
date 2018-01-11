@@ -21,7 +21,7 @@
     },
     "TipoPagoId": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "NombreCliente": {
       "type": "string",
@@ -33,7 +33,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "details": {
+      "type": "hasMany",
+      "model": "OrdenDetalle",
+      "foreignKey": "OrdenId"
+    }
+  },
   "acls": [
     {
       "accessType": "*",

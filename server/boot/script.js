@@ -4,6 +4,23 @@ module.exports = (app) => {
   var User = app.models.user
   var Role = app.models.Role
   var RoleMapping = app.models.RoleMapping
+  var EstadoOrden = app.models.EstadoOrden
+
+  EstadoOrden.find((err, lista) => {
+    if (!lista || lista.length === 0) {
+      let estadoOrden = [{
+          descripcion: "Comanda"
+        },
+        {
+          descripcion: "En proceso"
+        },
+        {
+          descripcion: "Terminado"
+        },
+      ]
+      EstadoOrden.create(estadoOrden)
+    }
+  })
 
   var getUsuarioAdm = new Promise((resolve, reject) => {
     function crearUsuarioAdm() {
@@ -42,18 +59,16 @@ module.exports = (app) => {
 
   var getRoleAdm = new Promise((resolve, reject) => {
     function crearRoleAdm() {
-      let data = [
-        {
-          name: 'Admin',
-          description: 'Administrador'
-        }, {
-          name: 'Cajero',
-          description: 'Cajero del restaurant'
-        }, {
-          name: 'Chef',
-          description: 'Chef del restaurant'
-        }
-      ];
+      let data = [{
+        name: 'Admin',
+        description: 'Administrador'
+      }, {
+        name: 'Cajero',
+        description: 'Cajero del restaurant'
+      }, {
+        name: 'Chef',
+        description: 'Chef del restaurant'
+      }];
       Role.create(data, (err, role) => {
         if (err) {
           reject(err)
@@ -99,7 +114,7 @@ module.exports = (app) => {
                 principalType: RoleMapping.USER,
                 principalId: user.id
               }, function (err, principal) {
-                if (err) 
+                if (err)
                   throw err;
               });
           }
