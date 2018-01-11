@@ -5,15 +5,10 @@
   "properties": {},
   "validations": [],
   "relations": {
-    "projects": {
+    "role": {
       "type": "hasMany",
-      "model": "project",
-      "foreignKey": "ownerId"
-    },
-    "teams": {
-      "type": "hasMany",
-      "model": "team",
-      "foreignKey": "ownerId"
+      "model": "RoleMapping",
+      "foreignKey": "principalId"
     }
   },
   "acls": [{
@@ -21,13 +16,6 @@
       "principalType": "ROLE",
       "principalId": "$unauthenticated",
       "permission": "DENY"
-    },
-    {
-      "principalType": "ROLE",
-      "principalId": "$everyone",
-      "permission": "ALLOW",
-      "property": "find",
-      "accessType": "*"
     }
   ],
   "methods": {}

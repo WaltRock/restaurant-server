@@ -38,7 +38,7 @@
   },
   "Role": {
     "dataSource": "MongoConnector",
-    "public": false
+    "public": true
   },
   "TipoPago": {
     "dataSource": "MongoConnector",

@@ -6,7 +6,9 @@ var boot = require('loopback-boot');
 var app = module.exports = loopback();
 
 app.start = function() {
-  app.models.user.settings.acls = require('./user-acl.json');
+  let User = app.models.user
+  User.settings.acls = require('./user-acl.json')
+
   // start the web server
   return app.listen(function() {
     app.emit('started');

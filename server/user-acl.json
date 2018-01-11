@@ -9,7 +9,7 @@
   "property": "create"
 }, {
   "principalType": "ROLE",
-  "principalId": "admin",
+  "principalId": "Admin",
   "permission": "ALLOW",
   "property": "deleteById"
 }, {
@@ -19,7 +19,7 @@
   "property": "login"
 }, {
   "principalType": "ROLE",
-  "principalId": "admin",
+  "principalId": "Admin",
   "permission": "ALLOW",
   "property": "exists"
 }, {
@@ -29,12 +29,27 @@
   "property": "logout"
 }, {
   "principalType": "ROLE",
-  "principalId": "admin",
+  "principalId": "Admin",
+  "permission": "ALLOW",
+  "property": "replaceOrCreate"
+}, {
+  "principalType": "ROLE",
+  "principalId": "Admin",
+  "permission": "ALLOW",
+  "property": "getListUsers"
+}, {
+  "principalType": "ROLE",
+  "principalId": "Admin",
+  "permission": "ALLOW",
+  "property": "createUser"
+}, {
+  "principalType": "ROLE",
+  "principalId": "Admin",
   "permission": "ALLOW",
   "property": "find"
 }, {
   "principalType": "ROLE",
-  "principalId": "admin",
+  "principalId": "Admin",
   "permission": "ALLOW",
   "property": "findById"
 }, {
@@ -49,12 +64,12 @@
   "property": "confirm"
 }, {
   "principalType": "ROLE",
-  "principalId": "admin",
+  "principalId": "Admin",
   "permission": "ALLOW",
   "property": "upsert"
 }, {
   "principalType": "ROLE",
-  "principalId": "admin",
+  "principalId": "Admin",
   "permission": "ALLOW",
   "property": "updateAll"
 }]

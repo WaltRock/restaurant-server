@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = (app) => {
   var User = app.models.user
@@ -12,7 +12,8 @@ module.exports = (app) => {
         user: 'walt',
         password: '123123',
         name: 'Walter',
-        lastName: 'Quispe Rios'
+        lastName: 'Quispe Rios',
+        dni: '47052204'
       }
 
       User.create(user, (err, user) => {
@@ -29,10 +30,9 @@ module.exports = (app) => {
         email: 'walt@tekton.com'
       }
     }, (err, user) => {
-      if (!user) {
+      if (!user && !err) {
         crearUsuarioAdm()
-      }
-      if (err) {
+      } else if (err) {
         reject(err)
       } else {
         resolve(user)
@@ -42,25 +42,35 @@ module.exports = (app) => {
 
   var getRoleAdm = new Promise((resolve, reject) => {
     function crearRoleAdm() {
-      Role.create({
-        name: 'admin'
-      }, (err, role) => {
+      let data = [
+        {
+          name: 'Admin',
+          description: 'Administrador'
+        }, {
+          name: 'Cajero',
+          description: 'Cajero del restaurant'
+        }, {
+          name: 'Chef',
+          description: 'Chef del restaurant'
+        }
+      ];
+      Role.create(data, (err, role) => {
         if (err) {
           reject(err)
         } else {
-          resolve(role)
+          resolve(role[0])
         }
       })
     }
     Role.findOne({
       where: {
-        name: 'admin'
+        name: 'Admin'
       }
     }, (err, role) => {
-      if (!role) {
+
+      if (!role && !err) {
         crearRoleAdm()
-      }
-      if (err) {
+      } else if (err) {
         reject(err)
       } else {
         resolve(role)
@@ -82,18 +92,15 @@ module.exports = (app) => {
             principalId: user.id
           }
         }, (err, data) => {
-          if (data) {
-            console.log('Ya existe el Role', data)
-          } else {
+          if (!data) {
             role
               .principals
               .create({
                 principalType: RoleMapping.USER,
                 principalId: user.id
               }, function (err, principal) {
-                if (err)
+                if (err) 
                   throw err;
-                console.log('Created Creado:', principal);
               });
           }
         })
