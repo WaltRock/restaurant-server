@@ -9,13 +9,16 @@ module.exports = (app) => {
   EstadoOrden.find((err, lista) => {
     if (!lista || lista.length === 0) {
       let estadoOrden = [{
-          descripcion: "Comanda"
+          descripcion: "Comanda",
+          color: "bg-danger",
         },
         {
-          descripcion: "En proceso"
+          descripcion: "En proceso",
+          color: "bg-warning",
         },
         {
-          descripcion: "Terminado"
+          descripcion: "Terminado",
+          color: "bg-success",
         },
       ]
       EstadoOrden.create(estadoOrden)

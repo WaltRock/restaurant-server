@@ -55,12 +55,8 @@ module.exports = (Orden) => {
     }
   })
 
-  Orden.getOrderDetails = (idOrder, cb) => {
-    // let Plato = Orden.app.models.Plato
-    Orden.findOne({
-      where: {
-        id: idOrder
-      },
+  Orden.getOrderDetails = (cb) => {
+    Orden.find({
       include: {
         details: 'DetallePlato'
       }
@@ -70,11 +66,6 @@ module.exports = (Orden) => {
     })
   }
   Orden.remoteMethod('getOrderDetails', {
-    accepts: {
-      arg: 'OrdenId',
-      type: 'string',
-      required: true
-    },
     returns: {
       arg: 'json',
       root: true,
